@@ -1,0 +1,91 @@
+<!--老年人数据统计页面-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="static/js/echarts.js"></script>
+</head>
+<body>
+    <div class="box-title">
+        <h4><i class="fa fa-signal"></i>年龄统计图</h4>
+
+    </div>
+    <div class="box-body" id="main" style="width: 500px;height:350px;">
+
+    </div>
+    <div class="col-md-6">
+        <!-- BOX -->
+        <div class="box border inverse">
+            <div class="box-title">
+                <h4><i class="fa fa-bar-chart-o"></i>监护人分布图</h4>
+                <div class="box-body" id="main2"
+                     style="width: 500px;height:350px;">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        var chartDom = document.getElementById('main');
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        option = {
+            top: 'center',
+            left: 'center',
+          tooltip: {
+            trigger: 'item'
+          },
+          legend: {
+            top: 575,
+            left: 'center',
+          },
+          series: [
+            {
+              name: 'Access From',
+              type: 'pie',
+              radius: ['38%', '75%'],
+              avoidLabelOverlap: false,
+              itemStyle: {
+                borderRadius: 10,
+                borderColor: '#fff',
+                borderWidth: 2
+              },
+              label: {
+                position: 'inner',
+                formatter: '{c}',
+                fontSize: 20
+              },
+
+            //   emphasis: {
+            //     label: {
+            //       show: true,
+            //       fontSize: '40',
+            //       fontWeight: 'bold'
+            //     }
+            //   },
+              labelLine: {
+                show: false
+              },
+              data: [
+                { value: 0.2563, name: 'CO2 sequestration and O2 release' },
+                { value: 0.0886, name: 'water retention' },
+                { value: 0.1424, name: 'air purification' },
+                { value: 0.1139, name: 'soil conservation' },
+                { value: 0.0570, name: 'biodiversity conservation' },
+                { value: 0.1709, name: 'forest recreation' },
+                { value: 0.1709, name: 'forest product' },
+              ]
+            }
+          ]
+        };
+
+          // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="box-body">
+   <table id="datatable2" cellpadding="0" cellspacing="0"
+     border="0" class="datatable table table-striped
+     table-bordered table-hover">
+      <thead>
+         <tr>
+            <th>编号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>房间号</th>
+            <th >入园日期</th>
+            <th>出生日期</th>
+            <th>身份证号</th>
+            <th>健康状况</th>
+
+            <th class="hidden-xs">编辑</th>
+         </tr>
+      </thead>
+
+       <li>
+            <a href="/setoldpersonid/{{data.id}}" >获取头像</a>
+        </li>
+
+
+      <tbody>
+
+      {% for data in listdata %}
+         <tr class="gradeX">
+            <td>{{data.id}}</td>
+            <td>{{data.username}}</td>
+            <td class="hidden-xs">{{data.gender}}</td>
+            <td>{{data.room_number}}</td>
+
+            <td>{{data.checkin_date.strftime('%Y-%m-%d')}}</td>
+            <td>{{data.birthday.strftime('%Y-%m-%d')}}</td>
+            <td>{{data.id_card}}</td>
+            <td>{{data.health_state}}</td>
+            <td>
+
+            <div class="btn-group dropdown">
+           <button class="btn　 btn-xs btn-info dropdown-toggle"
+                   data-toggle="dropdown">
+               <i class="fa fa-gear"></i>
+               <span class="caret"></span>
+               </button>
+               <ul class="dropdown-menu">
+                   <li>
+        <a href="#" onclick="javascript:selectdata({{data.id}})">编辑</a>
+                   </li>
+                    <li>
+               <a href="/setoldpersonid/{{data.id}}" >获取头像</a>
+                   </li>
+                    <li>
+         <a href="/deleteoldpersoninfo/{{data.id}}" >删除</a>
+                  </li>
+
+               </ul>
+               </div>
+            </td>
+         </tr>
+         {% endfor %}
+      </tbody>
+   </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!--老年人头像信息列表页面-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="imagelistid" class="row">
+
+   {% for image in imagelist %}
+
+   <div class="col-md-3 isotope-item">
+      <div class="filter-content">
+     <img src="img/oldperson/{{selectdata.id}}/{{image}}"
+           alt="" class="img-responsive">
+         <div class="hover-content">
+            <h4>操作</h4>
+      <a class="btn btn-success hover-link"
+          href="#" onclick="setImage('{{image}}')" title="设为头像">
+               <i class="fa fa-edit fa-1x"></i>
+            </a>
+            <a class="btncolorbox-button"
+                href="img/oldperson/{{selectdata.id}}/{{image}}"
+                 title="点击放大">
+               <i class="fa fa-search-plus fa-1x"></i>
+            </a>
+         </div>
+      </div>
+   </div>
+   {% endfor %}
+
+</div>
+
+</body>
+</html>
